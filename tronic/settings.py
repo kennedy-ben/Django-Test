@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#^w&=3j*!l218$y+r9dake$j(#9%l=#ce(9l4)rju6mwkg41^$'
+SECRET_KEY = '7f1a0870f3f0490593e50b6afaf5d748'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",
     'users.apps.UsersConfig',
+    'rest_framework',
     
 ]
 
@@ -140,7 +141,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-STATIC_ROOT = (BASE_DIR / 'asset')
+# STATIC_ROOT = (BASE_DIR / 'asset')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -12,7 +12,7 @@
                         <hr>
                         <form method="POST">
                             {% csrf_token %}
-                            
+                            {{ form|crispy }}
                             <input class="btn btn-primary btn-block" type="submit" value="Login">
                         </form>
                         <hr>
