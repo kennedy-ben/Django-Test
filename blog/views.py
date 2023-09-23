@@ -14,7 +14,7 @@ def index(request):
     newsapi = NewsApiClient(api_key='7f1a0870f3f0490593e50b6afaf5d748')
 
     # /v2/everything
-    all_articles = newsapi.get_top_headlines(category='business',page_size=5)
+    all_articles = newsapi.get_top_headlines(category='sports',page_size=6)
     
 
     posts = PostModel.objects.all()
