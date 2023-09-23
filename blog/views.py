@@ -2,12 +2,21 @@ from django.shortcuts import render, redirect
 from .models import PostModel
 from .forms import PostModelForm, PostUpdateForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from newsapi import NewsApiClient
+
 
 
 # Create your views here.
 
 @login_required
 def index(request):
+     # Init
+    newsapi = NewsApiClient(api_key='7f1a0870f3f0490593e50b6afaf5d748')
+
+    # /v2/everything
+    all_articles = newsapi.get_top_headlines(category='business',page_size=5)
+    
+
     posts = PostModel.objects.all()
     if request.method == 'POST':
         form = PostModelForm(request.POST)
@@ -20,7 +29,8 @@ def index(request):
         form = PostModelForm()
     context = {
         'posts': posts,
-        'form': form
+        'form': form,
+        'all_articles':all_articles
     }
 
     return render(request, 'blog/index.html', context)
@@ -73,3 +83,8 @@ def post_delete(request, pk):
         'post': post
     }
     return render(request, 'blog/post_delete.html', context)
+
+
+
+
+   

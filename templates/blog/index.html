@@ -35,6 +35,34 @@
                 </div>
             </div>
             {% endfor %}
+        <h1>News Update</h1>
+            {% for article in all_articles.articles %}
+            <div class="card shadow my-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-thumbnail" src="{{ article.urlToImage }}" alt="img">
+                        </div>
+                        <div class="col-md-8">
+                            <small>{{ article.publishedAt }}</small>
+                            <hr>
+                            <a class="h3" href={{article.url}}>{{ article.title }}</a>
+                            <p class="text-justify my-3">
+                                {{ artticle.content }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div>
+               <h1>{{ article.title }}</h1> 
+               <p></p>
+               <div>
+                {{ article.description }}
+               </div>
+            </div> -->
+
+            {% endfor %}
         </div>
     </div>
 </div>
